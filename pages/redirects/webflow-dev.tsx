@@ -49,6 +49,7 @@ export default function Home() {
           <div className={styles.thirteen}>
             <h1>WebflowCMS</h1>
           </div>
+          <p>Dev</p>
           <p>Redirecting back to the app...</p>
         </div>
       </main>
