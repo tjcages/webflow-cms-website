@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { Inter } from "next/font/google";
@@ -7,6 +7,8 @@ import styles from "@/styles/Home.module.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [code, setCode] = useState<string | null>(null);
+  const [state, setState] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
@@ -14,12 +16,11 @@ export default function Home() {
     const { code, state } = router.query as { code: string; state: string };
 
     var baseUri = "exp://10.1.101.226:19000/--/";
-    // if (/android/i.test(navigator.userAgent)) {
-    //   baseUri = "exp://10.0.0.208:19000/--/";
-    // }
-    // const baseUri = "applinks:webflow-cms.com://";
 
     if (code && state) {
+      setCode(code);
+      setState(state);
+      
       const href =
         baseUri +
         "?" +
@@ -51,6 +52,16 @@ export default function Home() {
             <h1>WebflowCMS</h1>
           </div>
           <p>Dev</p>
+          {
+            code && (
+              <p>{code}</p>
+            )
+          }
+          {
+            state && (
+              <p>{state}</p>
+            )
+          }
           <p>Redirecting back to the app...</p>
         </div>
       </main>
