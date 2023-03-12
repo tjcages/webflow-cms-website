@@ -17,6 +17,8 @@ export default function Home() {
 
     var baseUri = "exp://10.1.101.226:19000/--/";
 
+    console.log(router)
+
     if (code && state) {
       setCode(code);
       setState(state);
@@ -32,7 +34,7 @@ export default function Home() {
       console.log(href);
       window.location.href = href;
     } else {
-      setCode(router.pathname);
+      setCode(router.asPath);
     }
   });
 
