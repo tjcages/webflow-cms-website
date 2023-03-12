@@ -17,7 +17,7 @@ export default function Home() {
     // if (/android/i.test(navigator.userAgent)) {
     //   baseUri = "exp://10.0.0.208:19000/--/";
     // }
-    const baseUri = "com.tylerjcagle.webflowcms://";
+    const baseUri = "applinks:webflow-cms.com://";
 
     if (code && state) {
       const href =
