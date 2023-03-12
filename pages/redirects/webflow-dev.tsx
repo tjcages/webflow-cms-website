@@ -8,30 +8,19 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const [code, setCode] = useState<string | null>(null);
-  const [state, setState] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
     if (!router.isReady) return;
-    const { code, state } = router.query as { code: string; state: string };
+    const { code } = router.query as { code: string; state: string };
 
     var baseUri = "exp://10.1.101.226:19000/--/";
 
-    console.log(router)
-
-    if (code && state) {
+    if (code) {
       setCode(code);
-      setState(state);
 
-      const href =
-        baseUri +
-        "?" +
-        "code=" +
-        encodeURIComponent(code) +
-        "&state=" +
-        encodeURIComponent(state);
+      const href = baseUri + "?" + "code=" + encodeURIComponent(code);
 
-      console.log(href);
       window.location.href = href;
     } else {
       setCode(router.asPath);
@@ -57,7 +46,6 @@ export default function Home() {
           </div>
           <p>Dev</p>
           {code && <p>{code}</p>}
-          {state && <p>{state}</p>}
           <p>Redirecting back to the app...</p>
         </div>
       </main>
