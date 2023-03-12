@@ -6,6 +6,8 @@
 
   min-height: 100vh;
   padding: 6rem;
+
+  overflow-wrap: anywhere;
 }
 
 .center {
