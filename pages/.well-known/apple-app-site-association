@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "HE452HL4WS.com.tylerjcagle.webflow-cms",
+        "paths": ["/redirects/*"]
+      }
+    ]
+  }
+}
