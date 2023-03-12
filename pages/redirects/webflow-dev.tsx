@@ -13,10 +13,11 @@ export default function Home() {
     if (!router.isReady) return;
     const { code, state } = router.query as { code: string; state: string };
 
-    var baseUri = "exp://127.0.0.1:19000/--/";
-    if (/android/i.test(navigator.userAgent)) {
-      baseUri = "exp://10.0.0.208:19000/--/";
-    }
+    // var baseUri = "exp://127.0.0.1:19000/--/";
+    // if (/android/i.test(navigator.userAgent)) {
+    //   baseUri = "exp://10.0.0.208:19000/--/";
+    // }
+    const baseUri = "com.tylerjcagle.webflowcms://";
 
     if (code && state) {
       const href =
@@ -26,8 +27,8 @@ export default function Home() {
         encodeURIComponent(code) +
         "&state=" +
         encodeURIComponent(state);
-        
-        console.log(href);
+
+      console.log(href);
       window.location.href = href;
     }
   });
