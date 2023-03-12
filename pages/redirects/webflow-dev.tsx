@@ -20,7 +20,7 @@ export default function Home() {
     if (code && state) {
       setCode(code);
       setState(state);
-      
+
       const href =
         baseUri +
         "?" +
@@ -31,6 +31,8 @@ export default function Home() {
 
       console.log(href);
       window.location.href = href;
+    } else {
+      setCode(router.pathname);
     }
   });
 
@@ -52,16 +54,8 @@ export default function Home() {
             <h1>WebflowCMS</h1>
           </div>
           <p>Dev</p>
-          {
-            code && (
-              <p>{code}</p>
-            )
-          }
-          {
-            state && (
-              <p>{state}</p>
-            )
-          }
+          {code && <p>{code}</p>}
+          {state && <p>{state}</p>}
           <p>Redirecting back to the app...</p>
         </div>
       </main>
